@@ -21,7 +21,7 @@
 }
 
 .card {
-    height: 35vh;
+    height: 100vh;
 }
 
 
@@ -154,10 +154,12 @@
     
         $(document).ready(function(){
 
+            $( "#next" ).on( "swipe", nextDate );
+
             //next date button
-            $('#next').click(()=>{
-                nextDate();
-            });
+            // $('#next').click(()=>{
+            //     nextDate();
+            // });
 
             //init scrollspy
             $('.scrollspy').scrollSpy();
