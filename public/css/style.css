@@ -1,0 +1,128 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+nav {
+  height: 5vh;
+}
+
+.navlink {
+  font-family: 'Asap', sans-serif;
+  text-shadow: 2px 2px 4px #000000;
+  color: whitesmoke;
+}
+
+.secondnav {
+  padding-left: 40%;
+  font-size: 42px;
+}
+
+.nav-wrapper {
+  text-align: center;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.logo {
+  border-radius: 5px;
+  height: 15vw;
+  
+}
+
+.navimage {
+  height: 5vh;
+  padding: 10px;
+  border-radius: 7px;
+}
+
+.title {
+
+    text-shadow: 2px 2px 4px #000000;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+
+
+  .logo {
+    width: 85vw;
+    height: 61vw;
+  }
+
+
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+
+
+
+  .navimage {
+    height: 5vh;
+    padding: 2px;
+    border-radius: 2px;
+  }
+
+  .logo {
+    width: 85vw;
+    height: 61vw;
+  }
+
+  nav {
+    height: 28vh;
+  }
+
+}
+
+
+
+
+
+
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
