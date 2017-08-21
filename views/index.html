@@ -36,6 +36,7 @@
 
         var update = () => {
             $('.slides').empty();
+            $('.indicators').empty();
             todaysEvents = [];
             $('#date').text(current);
             for (i in allEvents) {
@@ -98,7 +99,7 @@
             
             // $('.slider').html(html);
 
-            var html = '<li><h5 id="date"></h5><img src="https://lorempixel.com/580/250/nature/1"><div class="caption center-align"><h3>' + obj.event  + '</h3><h4>' + obj.desc  + '</h4> <h5 class="light grey-text text-lighten-3">' + obj.href  + '</h5></div></li>';
+            var html = '<li><h5 id="date"></h5><img src="https://lorempixel.com/800/600/"><div class="caption center-align"><h3>' + obj.event  + '</h3><h4>' + obj.desc  + '</h4> <h5 class="light grey-text text-lighten-3">' + obj.href  + '</h5></div></li>';
             console.log(html);
             console.log(typeof html);
 
