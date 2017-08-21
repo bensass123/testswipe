@@ -28,7 +28,7 @@
 </style>
 
 
-    <script id="eventTemplate" type="text/x-handlebars-template">
+    <!-- <script id="eventTemplate" type="text/x-handlebars-template">
 
         <div class="card blue-grey darken-1">
             <div class="card-content white-text">
@@ -41,6 +41,18 @@
             </div>
         </div>
 
+    </script> -->
+
+
+    <script id="eventTemplate" type="text/x-handlebars-template">
+        <li>
+            <img src="https://lorempixel.com/580/250/nature/1"> <!-- random image -->
+            <div class="caption center-align">
+                <h3>{{ event }}</h3>
+                <h4>{{ desc }}</h4>
+                <h5 class="light grey-text text-lighten-3">{{ href }}</h5>
+            </div>
+        </li>
     </script>
 
 
@@ -49,9 +61,11 @@
 
   <body>
 
-    <h2 id='date'></h2><button id='next'>></button>
+    <h2 id='date'></h2>
+    <button id='prev'><</button>
+    <button id='next'>></button>
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col s9 m9 l10 cardList">
 
           <div id="snug" class="section scrollspy content"></div>
@@ -73,8 +87,13 @@
             <li><a href="#milestone">The Milestone Club</a></li>
           </ul>
         </div>
-    </div>
+    </div> -->
     
+    
+    <div class='slider'>
+        <ul id='slides'></ul>
+    </div>
+
 
 
   <!--  Scripts-->
@@ -113,8 +132,12 @@
 
         var nextDate = () => {
             current = moment(current).add(1,'days').format('MM DD YY');
-            update();
-            
+            update();   
+        }
+
+        var prevDate = () => {
+            current = moment(current).subtract(1,'days').format('MM DD YY');
+            update();   
         }
 
 
@@ -144,21 +167,38 @@
                     venue = 'milestone';
                     break;
             }
+
+            // fillit(obj, eventTemplate,'#' + venue);
+
+
             //add handlebars where id = venue
-            var source = $('#eventTemplate').html();
-            var template = Handlebars.compile(source);
-            var html = template(obj);
-            $('#' + venue).html(html);
+            // var source = $('#eventTemplate').html();
+            // var template = Handlebars.compile(source);
+            // var html = template(obj);
+            
+            // $('.slider').html(html);
+
+            var html = '<li><img src="https://lorempixel.com/580/250/nature/1"><div class="caption center-align"><h3>' + obj.event  + '</h3><h4>' + obj.desc  + '</h4> <h5 class="light grey-text text-lighten-3">' + obj.href  + '</h5></div></li>';
+
+            $('#slides').append(html);
+
+
 
         }       
     
         $(document).ready(function(){
 
-            $( "#card" ).on( "swipe", nextDate );
+            //$( "#card" ).on( "swipe", nextDate );
+
+            $('.slider').slider();
 
             //next date button
             $('#next').click(()=>{
                 nextDate();
+            });
+
+            $('#prev').click(()=>{
+                prevDate();
             });
 
             //init scrollspy
