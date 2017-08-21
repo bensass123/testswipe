@@ -5,28 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="robots" content="noindex">
   <title>Local Live Music | Charlotte, NC</title>
-  <link href="./css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./public/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   
 </head>
 
 <body>
 
 
-    <div class="slider fullscreen">
-        <ul class="slides"></ul>
-    </div>
+        <div class="slider fullscreen">
+                
+                <ul class="slides">
+                  
+                </ul>
+              </div>
 
-    <script src="./js/jquery-2.1.1.min.js"></script>
-    <script src="./js/materialize.js"></script>
+    <script src="./public/js/jquery-2.1.1.min.js"></script>
+    <script src="./public/js/materialize.js"></script>
 
 
-    <script src="./js/moment.min.js"></script>
-    <script src="./js/handlebars.min.js"></script>
+  <script src="./public/js/moment.min.js"></script>
+  <script src="./public/js/handlebars.min.js"></script>
 
-    <script src="./JSON/museDATA.js"></script>
-    <script src="./JSON/snugDATA.js"></script>
-    <script src="./JSON/tinroofDATA.js"></script>
-    <script src="./JSON/milestoneDATA.js"></script>
+  <script src="./public/JSON/museDATA.js"></script>
+  <script src="./public/JSON/snugDATA.js"></script>
+  <script src="./public/JSON/tinroofDATA.js"></script>
+  <script src="./public/JSON/milestoneDATA.js"></script>
 
   <script type='text/javascript'>
 
@@ -35,7 +38,7 @@
         var current;
 
         var update = () => {
-            $('.slides').empty();
+            $('.cardList').children().empty();
             todaysEvents = [];
             $('#date').text(current);
             for (i in allEvents) {
@@ -45,18 +48,15 @@
                     addCard(allEvents[i]);
                 }
             }
-            $('.slider').slider();
         }
 
         var nextDate = () => {
             current = moment(current).add(1,'days').format('MM DD YY');
-            console.log(current);
             update();   
         }
 
         var prevDate = () => {
             current = moment(current).subtract(1,'days').format('MM DD YY');
-            console.log(current);
             update();   
         }
 
@@ -98,11 +98,13 @@
             
             // $('.slider').html(html);
 
-            var html = '<li><h5 id="date"></h5><img src="https://lorempixel.com/580/250/nature/1"><div class="caption center-align"><h3>' + obj.event  + '</h3><h4>' + obj.desc  + '</h4> <h5 class="light grey-text text-lighten-3">' + obj.href  + '</h5></div></li>';
+            var html = '<li><img src="https://lorempixel.com/580/250/nature/1"><div class="caption center-align"><h3>' + obj.event  + '</h3><h4>' + obj.desc  + '</h4> <h5 class="light grey-text text-lighten-3">' + obj.href  + '</h5></div></li>';
             console.log(html);
             console.log(typeof html);
 
             $('.slides').append(html);
+
+
 
         }       
     
@@ -136,12 +138,12 @@
 
             //set current date
             current = moment().format('MM DD YY');
-            // current = '08 25 17'; //testing date, friday
+            current = '08 25 17'; //testing date, friday
             todaysEvents = [];
 
-            // adds cards and initializes slider
+            // adds cards 
             update();
-            
+            $('.slider').slider();
 
             
 
