@@ -6,14 +6,36 @@
   <meta name="robots" content="noindex">
   <title>Local Live Music | Charlotte, NC</title>
   <link href="./css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
   
 </head>
 
+<style>
+
+.slider-adjustment {
+    position: fixed;
+    top: 8vh;  
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+}
+
+</style>
+
 <body>
 
+    
+        <a class="waves-effect waves-light btn" id ='prev'><i class="material-icons left">arrow_back</i>Previous Date</a>
+        <span id='date'></span>
+        <a class="waves-effect waves-light btn" id ='next'><i class="material-icons left">arrow_forward</i>Next Date</a>
 
-    <div class="slider fullscreen">
-        <ul class="slides"></ul>
+
+    <div class='slider-adjustment'>
+        <div class="slider fullscreen">
+            <ul class="slides"></ul>
+        </div>
     </div>
 
     <script src="./js/jquery-2.1.1.min.js"></script>
@@ -36,7 +58,7 @@
 
         var update = () => {
             $('.slides').empty();
-            $('.indicators').empty();
+            $('.indicators').remove();
             todaysEvents = [];
             $('#date').text(current);
             for (i in allEvents) {
@@ -99,7 +121,7 @@
             
             // $('.slider').html(html);
 
-            var html = '<li><h5 id="date"></h5><img src="https://lorempixel.com/800/600/"><div class="caption center-align"><h3>' + obj.event  + '</h3><h4>' + obj.desc  + '</h4> <h5 class="light grey-text text-lighten-3">' + obj.href  + '</h5></div></li>';
+            var html = '<li><h5 id="date"></h5><img src="https://lorempixel.com/800/600/"><div class="caption center-align"><h3>' + obj.event  + '</h3><h4>' + obj.desc  + '</h4> <h3>' + obj.times + '<h5 class="light grey-text text-lighten-3">' + obj.href  + '</h5></div></li>';
             console.log(html);
             console.log(typeof html);
 
