@@ -1,0 +1,19 @@
+muse
+
+array->
+events
+desc
+pics
+
+
+
+gallery on browser
+slider on mobile
+
+
+
+DESIGN
+----
+materialize
+----
+tap target for tomorrows date
