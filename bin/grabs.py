@@ -24,7 +24,7 @@ def download(venue, url):
 
     innerHTML = browser.execute_script("return document.body.innerHTML") #returns the inner HTML as a string
 
-    page = open(venue + "Scrape.html","a",encoding='utf8') #creates file with name of "...Scrape.html"
+    page = open("./HTML/" + venue + "Scrape.html","a",encoding='utf8') #creates file with name of "...Scrape.html"
 
 
 
@@ -34,13 +34,13 @@ def download(venue, url):
     browser.close()
 
 download('Snug','http://snugrock.com')
-# download('Visulite','http://www.visulite.com/upcomingShows.cfm')
-# download('NeighborhoodTheatre','http://www.neighborhoodtheatre.com/')
-# download('Fillmore','http://www.fillmorecharlottenc.com/')
+download('Visulite','http://www.visulite.com/upcomingShows.cfm')
+download('NeighborhoodTheatre','http://www.neighborhoodtheatre.com/')
+download('Fillmore','http://www.fillmorecharlottenc.com/')
 download('EveningMuse','http://www.eveningmuse.com/')
 download('TinRoof','http://www.tinroofcharlotte.com/calendar')
 download('Milestone','https://themilestone.club/calendar/')
-# download('CoyoteJoes','http://www.coyote-joes.com/events.html')
+download('CoyoteJoes','http://www.coyote-joes.com/events.html')
 
 # for i in data:
 #     # download('visuliteSOLO',visuliteHref)
